@@ -1,0 +1,4 @@
+face_api/reconocimiento/age_net.caffemodel
+face_api/reconocimiento/gender_net.caffemodel
+__pycache__/
+__pycache__

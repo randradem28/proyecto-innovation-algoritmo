@@ -2,10 +2,16 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .reconocimiento import algorithm
+from django.http import HttpResponse
 import os
+
+def homepage(request):
+    return HttpResponse("Hola, esta es una vista simple en Django!")
 
 @csrf_exempt
 def reconocer(request):
+    print("Entrando a la vista reconocer")
+    print(request.method)
     if request.method == 'POST':
         try:
             if 'imagen' not in request.FILES:
@@ -29,3 +35,4 @@ def reconocer(request):
             return JsonResponse({'error': str(e)}, status=400)
     else:
         return JsonResponse({'error': 'Método no permitido'}, status=405)
+
